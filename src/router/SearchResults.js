@@ -4,22 +4,22 @@ import { Link, useParams } from 'react-router-dom';
 
 const SearchResults = () => {
   const [movies, setMovies] = useState([]);
-  const { searchQuery } = useParams();  // Grab the searchQuery from the URL parameters
+  const { searchQuery } = useParams();  
   const apiKey = 'cd6a8d693944d0640057506a61ea8109';
 
   useEffect(() => {
-    if (searchQuery) {  // Only perform the API call if searchQuery is present
+    if (searchQuery) {  
       const fetchSearchResults = async () => {
         try {
           const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchQuery}`);
-          setMovies(response.data.results);  // Update the state with the fetched movies
+          setMovies(response.data.results);  
         } catch (error) {
           console.error("An error occurred: ", error);
         }
       };
       fetchSearchResults();
     }
-  }, [searchQuery]);  // Dependency array
+  }, [searchQuery]);
 
   return (
     <div className="movie-container">

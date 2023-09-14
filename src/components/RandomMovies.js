@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import '../assets/RandomMovies.css'; 
 
 const RandomMovies = () => {
@@ -32,9 +33,9 @@ const RandomMovies = () => {
   return (
     <div className="movie-grid">
       {movies.map((movie) => (
-        <div key={movie.id} className="movie-item">
-          <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
-        </div>
+        <Link to={`/movie/${movie.id}`} key={movie.id}>
+          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+        </Link>
       ))}
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import '../assets/PopularMovies.css';
 
 const PopularMovies = () => {
@@ -11,7 +12,14 @@ const PopularMovies = () => {
       try {
         const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`);
         const movieData = response.data.results.slice(0, 6);
-        const moviePosters = movieData.map(movie => `https://image.tmdb.org/t/p/w500${movie.poster_path}`);
+        
+        
+        const moviePosters = movieData.map(movie => ({
+          posterPath: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+          id: movie.id,
+          title: movie.title
+        }));
+        
         setMovies(moviePosters);
       } catch (error) {
         console.error("An error occurred: ", error);
@@ -23,10 +31,10 @@ const PopularMovies = () => {
 
   return (
     <div className="movie-container">
-      {movies.map((movie, index) => (
-        <div key={index} className="movie-item">
-          <img src={movie} alt="Movie Poster" className="movie-poster" />
-        </div>
+      {movies.map((movie) => (
+        <Link to={`/movie/${movie.id}`} key={movie.id}>
+          <img src={movie.posterPath} alt={movie.title} />
+        </Link>
       ))}
     </div>
   );

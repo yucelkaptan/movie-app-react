@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import "../assets/SearchBar.css";
 
-const SearchBar = ({ setMovies }) => {
+const SearchBar = ({ setSearchQuery }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const searchMovies = async () => {
@@ -12,7 +12,7 @@ const SearchBar = ({ setMovies }) => {
         query: searchTerm,
       },
     });
-    setMovies(response.data.results);
+    setSearchQuery(response.data.results);
   };
 
   const handleKeyPress = (e) => {
@@ -22,15 +22,15 @@ const SearchBar = ({ setMovies }) => {
   };
 
   return (
-    <div class="container">
-    <input
-      className='searchBarStyle'
-      type="text"
-      placeholder="Search for a movie..."
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-      onKeyPress={handleKeyPress}
-    />
+    <div className="container">
+      <input
+        className='searchBarStyle'
+        type="text"
+        placeholder="Search for a movie..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyPress={handleKeyPress}
+      />
     </div>
   );
 };

@@ -43,7 +43,8 @@ img {
 
 @media (max-width: 480px) {
     input {
-        width: 100%;
+        width: 90%;
+        margin-left: 20px;
     }
     .search-bar {
         font-size: 14px;

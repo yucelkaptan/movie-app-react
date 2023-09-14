@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import "../assets/MovieDetail.css";
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -31,13 +32,13 @@ const MovieDetail = () => {
   }
 
   return (
-    <div>
-      <h2>{movieDetails.title}</h2>
-      <img src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`} alt={movieDetails.title} />
-      <p>{movieDetails.overview}</p>
-      <p>Release Date: {movieDetails.release_date}</p>
-      <p>Rating: {movieDetails.vote_average}</p>
-    </div>
+    <div className="movie-details-container">
+      <h2 className="movie-title">{movieDetails.title}</h2>
+      <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`} alt={movieDetails.title} />
+      <p className="movie-overview">{movieDetails.overview}</p>
+      <p className="movie-release-date">Release Date: {movieDetails.release_date}</p>
+      <p className="movie-rating">Rating: {movieDetails.vote_average}</p>
+  </div>
   );
 };
 

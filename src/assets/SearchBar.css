@@ -6,12 +6,15 @@ input {
     padding: 10px 20px;
     box-sizing: border-box;
     color: white;
+    transition: width 0.3s ease-in-out;
 }
+
 .searchBarStyle {
     display: flex;
     justify-content: center; 
     align-items: center;
 }
+
 img {
     border-radius: 25px;
 }
@@ -23,9 +26,26 @@ img {
     margin: 0;
     padding: 0;
     width: 96%;
-  }
+}
 
 .search-bar {
     padding: 10px;
     font-size: 16px;
-  }
+}
+
+
+@media (max-width: 768px) {
+    input {
+        width: 90%;
+    }
+}
+
+
+@media (max-width: 480px) {
+    input {
+        width: 100%;
+    }
+    .search-bar {
+        font-size: 14px;
+    }
+}

@@ -7,7 +7,6 @@ import PopularMovies from '../components/PopularMovies';
 import NowPlaying from '../components/NowPlaying';
 import RandomMovies from '../components/RandomMovies';
 import SearchResults from './SearchResults';
-
 import "../assets/style.css";
 
 const Home = () => {

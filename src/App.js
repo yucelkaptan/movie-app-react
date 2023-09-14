@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import SearchBar from './components/SearchBar';
+import PopularMovies from './components/PopularMovies';
+import NowPlaying from './components/NowPlaying';
+import RandomMovies from "./components/RandomMovies";
+import MovieList from "./components/MovieList";
+import "./assets/style.css";
 
-function App() {
+const App = () => {
+  const [movies, setMovies] = useState(null);
+
+  const goToHomePage = () => {
+    setMovies(null);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>What do you want to watch?</h1>
+      <div className="header-controls">
+        <SearchBar setMovies={setMovies} />
+        <button onClick={goToHomePage} className="home-button">Home</button>
+      </div>
+      
+      {movies ? (
+        <MovieList movies={movies} />
+      ) : (
+        <>
+          <PopularMovies />
+          <NowPlaying />
+          <RandomMovies />
+        </>
+      )}
     </div>
   );
-}
+};
 
 export default App;

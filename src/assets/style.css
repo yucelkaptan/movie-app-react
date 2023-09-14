@@ -1,0 +1,56 @@
+
+*{
+    box-sizing: border-box;
+    background-color: rgb(36,42,50);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+}
+
+
+@media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+}
+@media (max-width: 480px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+  .header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .home-button {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 25%;
+    color: white;
+}
+  
+
+@media (max-width: 768px) {
+  .header-controls {
+    flex-direction: column;
+  }
+
+  .home-button {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .home-button {
+    margin-top: 15px;
+  }
+}
+  

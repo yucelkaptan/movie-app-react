@@ -1,0 +1,25 @@
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.movie-item {
+  flex: 1;
+  max-width: calc(100% / 6 - 16px);
+  margin: 8px;
+}
+
+.movie-poster {
+  max-width: 100%;
+}
+
+.no-poster {
+  text-align: center;
+  font-size: 18px;
+  color: grey;
+}
+h2 {
+  color: white;
+  margin-left: 10px;
+}

@@ -1,0 +1,31 @@
+input {
+    width: 50%;
+    border-radius: 25px;
+    background-color: rgb(58,63,71);
+    border: none;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    color: white;
+}
+.searchBarStyle {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+img {
+    border-radius: 25px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 96%;
+  }
+
+.search-bar {
+    padding: 10px;
+    font-size: 16px;
+  }

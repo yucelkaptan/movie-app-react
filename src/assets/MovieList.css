@@ -2,12 +2,18 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  flex-direction: column;
 }
 
 .movie-item {
   flex: 1;
   max-width: calc(100% / 6 - 16px);
   margin: 8px;
+  transition: transform .2s ease-in-out;
+}
+
+.movie-item:hover {
+  transform: scale(1.02);
 }
 
 .movie-poster {
@@ -19,7 +25,9 @@
   font-size: 18px;
   color: grey;
 }
+
 h2 {
   color: white;
   margin-left: 10px;
+  text-align: center;
 }

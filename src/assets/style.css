@@ -22,26 +22,5 @@ h1 {
     }
   }
 
-nav .home {
-    text-decoration:none ;
-    color: white;
-
-}
-
-@media (max-width: 768px) {
-  nav .home {
-    text-decoration: none;
-    color: white;
-  }
-}
-
-
-@media (max-width: 480px) {
-  nav .home {
-    text-decoration: none;
-    color: white;
-  }
-}
-
 
   

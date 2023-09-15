@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // <--- useNavigate'i ekliyoruz
 import "../assets/SearchBar.css";
 
 const SearchBar = ({ setSearchQuery }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate(); // <--- useNavigate'i kullanıyoruz
 
   const searchMovies = async () => {
     const response = await axios.get('https://api.themoviedb.org/3/search/movie', {
@@ -13,6 +15,7 @@ const SearchBar = ({ setSearchQuery }) => {
       },
     });
     setSearchQuery(response.data.results);
+    navigate('/search-results'); // <--- useHistory yerine useNavigate kullanıyoruz
   };
 
   const handleKeyPress = (e) => {

@@ -1,53 +1,42 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
+import Home from './Home';
 import MovieDetail from './MovieDetail';
-import PopularMovies from '../components/PopularMovies';
-import NowPlaying from '../components/NowPlaying';
-import RandomMovies from '../components/RandomMovies';
-import SearchResults from './SearchResults';
+import Navigation from './Navigation';  // Yeni bileşeni ekleyin
 import "../assets/style.css";
 
-const Home = () => {
-  const navigate = useNavigate();  
-  const [searchQuery, setSearchQuery] = useState(null);
-
-  const updateSearchQuery = (newResults) => {
-    setSearchQuery(newResults);
-    navigate(`/search/${newResults}`);  
-  };
-
+const MainApp = () => {
+  const [searchQuery, setSearchQuery] = useState([]);
+  const location = useLocation();
+  
   return (
-    <>
-      <div className="App">
-        <h1>What do you want to watch?</h1>
-        <nav>
-          <SearchBar setSearchQuery={updateSearchQuery} />
-        </nav>
-        <PopularMovies />
-        <NowPlaying />
-        <RandomMovies />
-      </div>
-    </>
+    <div className="App">
+        {location.pathname !== '/' && <Navigation />} {/* Ana sayfada gözükmemesi için kontrol eklendi */}
+        {location.pathname === '/' && (
+          <>
+            <h1>What do you want to watch?</h1>
+            <nav>
+              <SearchBar setSearchQuery={setSearchQuery} />
+            </nav>
+          </>
+        )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movie/:id" element={<MovieDetail />} />
+        <Route path="/search-results" element={<MovieList movies={searchQuery} />} />
+      </Routes>
+    </div>
   );
-};
+}
 
 const App = () => {
   return (
     <Router>
-      <div className="App">
-        <nav>
-          <Link to="/" className='home'>Home</Link>
-        </nav>
-      </div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movie/:id" element={<MovieDetail />} />
-        <Route path="/search/:searchQuery" element={<SearchResults />} />  
-      </Routes>
+      <MainApp />
     </Router>
-  );
-};
+  )
+}
 
 export default App;

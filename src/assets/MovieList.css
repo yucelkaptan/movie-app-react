@@ -1,15 +1,20 @@
 .movie-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  flex-direction: column;
+  margin-top: 15px;
 }
 
 .movie-item {
-  flex: 1;
-  max-width: calc(100% / 6 - 16px);
+  flex: 0 0 calc(16.66667% - 1em);
   margin: 8px;
   transition: transform .2s ease-in-out;
+}
+
+.movie-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .movie-item:hover {
@@ -28,6 +33,20 @@
 
 h2 {
   color: white;
-  margin-left: 10px;
+  margin: 0 auto;
   text-align: center;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .movie-item {
+    flex: 0 0 calc(33.33333% - 1em);
+  }
+}
+
+
+@media only screen and (max-width: 480px) {
+  .movie-item {
+    flex: 0 0 calc(50% - 1em);
+  }
 }

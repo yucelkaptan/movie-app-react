@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import Home from './Home';
 import MovieDetail from './MovieDetail';
-import Navigation from './Navigation';  // Yeni bileşeni ekleyin
+import Navigation from './Navigation'; 
 import "../assets/style.css";
 
 const MainApp = () => {
@@ -13,7 +13,7 @@ const MainApp = () => {
   
   return (
     <div className="App">
-        {location.pathname !== '/' && <Navigation />} {/* Ana sayfada gözükmemesi için kontrol eklendi */}
+        {location.pathname !== '/' && <Navigation />} 
         {location.pathname === '/' && (
           <>
             <h1>What do you want to watch?</h1>

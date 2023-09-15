@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "../assets/MovieList.css";  // CSS dosyası import ediliyor
+import "../assets/MovieList.css"; 
 
 const MovieList = ({ movies }) => {
   return (

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { WhiteListProvider } from './WhiteListContext';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import Home from './Home';
 import MovieDetail from './MovieDetail';
 import Navigation from './Navigation'; 
+import WhiteListPage from './WhiteListPage';
 import "../assets/style.css";
 
 const MainApp = () => {
@@ -26,17 +28,20 @@ const MainApp = () => {
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<MovieDetail />} />
         <Route path="/search-results" element={<MovieList movies={searchQuery} />} />
+        <Route path="/whitelist" element={<WhiteListPage />} /> 
       </Routes>
     </div>
   );
-}
+};
 
 const App = () => {
   return (
     <Router>
-      <MainApp />
+      <WhiteListProvider>
+        <MainApp />
+      </WhiteListProvider>
     </Router>
-  )
-}
+  );
+};
 
 export default App;

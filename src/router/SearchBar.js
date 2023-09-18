@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // <--- useNavigate'i ekliyoruz
+import { useNavigate } from 'react-router-dom';
 import "../assets/SearchBar.css";
 
 const SearchBar = ({ setSearchQuery }) => {

@@ -7,7 +7,7 @@
 .movie-item {
   flex: 0 0 calc(16.66667% - 1em);
   margin: 8px;
-  transition: transform .2s ease-in-out;
+
 }
 
 .movie-item img {
@@ -17,9 +17,6 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.movie-item:hover {
-  transform: scale(1.02);
-}
 
 .movie-poster {
   max-width: 100%;

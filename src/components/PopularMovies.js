@@ -13,7 +13,6 @@ const PopularMovies = () => {
         const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`);
         const movieData = response.data.results.slice(0, 6);
         
-        
         const moviePosters = movieData.map(movie => ({
           posterPath: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
           id: movie.id,
@@ -31,11 +30,14 @@ const PopularMovies = () => {
 
   return (
     <div className="movie-container">
-      {movies.map((movie) => (
-        <Link to={`/movie/${movie.id}`} key={movie.id}>
-          <img src={movie.posterPath} alt={movie.title} />
-        </Link>
-      ))}
+      {movies.map((movie, index) => (
+  <Link to={`/movie/${movie.id}`} key={movie.id}>
+    <div className="movie-item">
+      <span className="movie-number">{index + 1}</span>
+      <img src={movie.posterPath} alt={movie.title} />
+    </div>
+  </Link>
+))}
     </div>
   );
 };

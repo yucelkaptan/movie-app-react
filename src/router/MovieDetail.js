@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 import { useWhiteList } from './WhiteListContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import "../assets/MovieDetail.css";
 
 const MovieDetail = () => {
@@ -47,7 +49,7 @@ const MovieDetail = () => {
       <p className='movie-overview'>{movieDetails.overview}</p>
       <p className='movie-release-date'>Release Date: {movieDetails.release_date}</p>
       <p className='movie-rating'>Rating: {movieDetails.vote_average} / 10</p>
-      <button onClick={handleAddToWhiteList}>Add to Whitelist</button>
+      <button onClick={handleAddToWhiteList}><FontAwesomeIcon icon={faBookmark}></FontAwesomeIcon></button>
     </div>
   );
 };

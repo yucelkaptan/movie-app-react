@@ -1,7 +1,9 @@
 .movieListed ul {
+    position: relative;
     list-style-type: none;
     display: flex;
     gap: 2rem;
+    top: 10px;
 }
 .movieListed ul a {
     text-decoration:none ;

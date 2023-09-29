@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  overflow-x: auto;
   margin-top: 15px;
 }
 
@@ -14,12 +13,13 @@
 
 .movie-number {
   position: absolute;
-  top: 304px;
-  left: 7px;
-  color: #0a0de7;
-  font-size: 120px;
+  top: 330px;
+  left: 5px;
+  border:#0a0de7; 
+  color: #0a0de7; 
+  background-color: transparent; 
+  font-size: 130px;
   font-weight: bold;
-  background-color: transparent;
 }
 
 .movie-container img {
@@ -29,6 +29,30 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 480px) {
+  .movie-number {
+    position: absolute;
+  top: 190px;
+  left: 4px;
+  border:#0a0de7; 
+  color: #0a0de7; 
+  background-color: transparent; 
+  font-size: 90px;
+  font-weight: bold; 
+  }
+}
+
+
+@media (max-width: 480px) {
+  .movie-container a {
+    display: none;
+  }
+  
+  .movie-container a:nth-of-type(1),
+  .movie-container a:nth-of-type(2) {
+    display: block; 
+  }
+}
 
 @media only screen and (max-width: 768px) {
   .movie-container a {

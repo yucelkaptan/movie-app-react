@@ -32,7 +32,7 @@
     }
   }
   
-  /* Mobil için */
+
   @media (max-width: 480px) {
     .poster-card {
       flex-basis: calc(100% - 32px); 
